@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "lit-discord-gateway-portal": "apps/lit-discord-gateway-portal",
+    "lit-discord-gateway-portal-e2e": "apps/lit-discord-gateway-portal-e2e"
+  }
+}

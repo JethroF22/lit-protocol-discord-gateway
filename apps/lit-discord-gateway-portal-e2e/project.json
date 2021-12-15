@@ -1,0 +1,28 @@
+{
+  "root": "apps/lit-discord-gateway-portal-e2e",
+  "sourceRoot": "apps/lit-discord-gateway-portal-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/lit-discord-gateway-portal-e2e/cypress.json",
+        "devServerTarget": "lit-discord-gateway-portal:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "lit-discord-gateway-portal:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/lit-discord-gateway-portal-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["lit-discord-gateway-portal"]
+}
