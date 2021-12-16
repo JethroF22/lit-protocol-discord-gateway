@@ -1,0 +1,52 @@
+{
+  "root": "apps/lit-discord-gateway-server",
+  "sourceRoot": "apps/lit-discord-gateway-server/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/lit-discord-gateway-server",
+        "main": "apps/lit-discord-gateway-server/src/main.ts",
+        "tsConfig": "apps/lit-discord-gateway-server/tsconfig.app.json",
+        "assets": ["apps/lit-discord-gateway-server/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/lit-discord-gateway-server/src/environments/environment.ts",
+              "with": "apps/lit-discord-gateway-server/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:execute",
+      "options": {
+        "buildTarget": "lit-discord-gateway-server:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/lit-discord-gateway-server/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/lit-discord-gateway-server"],
+      "options": {
+        "jestConfig": "apps/lit-discord-gateway-server/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
